@@ -40,7 +40,7 @@ export const useRecipeQuery = (t: ObjectDefinitionBlock<"Query">) => {
     },
     async resolve(_, { id }) {
       const result = await Axios.get(
-        `https://api.edamam.com/search?app_id=337938b4&app_key=1297ec857f114ae4bec67470e87d93cb&r=${id}`
+        `https://api.edamam.com/search?app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}&r=${id}`
       );
 
       console.log(result.data);
@@ -56,7 +56,7 @@ export const useRecipeQuery = (t: ObjectDefinitionBlock<"Query">) => {
     },
     async resolve(_, { query }) {
       const result = await Axios.get(
-        `https://api.edamam.com/search?app_id=337938b4&app_key=1297ec857f114ae4bec67470e87d93cb&q=${query}`
+        `https://api.edamam.com/search?app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}&q=${query}`
       );
 
       console.log(result.data.hits);
