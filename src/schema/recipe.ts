@@ -43,8 +43,6 @@ export const useRecipeQuery = (t: ObjectDefinitionBlock<"Query">) => {
         `https://api.edamam.com/search?app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}&r=${id}`
       );
 
-      console.log(result.data);
-
       return result;
     }
   });
@@ -58,8 +56,6 @@ export const useRecipeQuery = (t: ObjectDefinitionBlock<"Query">) => {
       const result = await Axios.get(
         `https://api.edamam.com/search?app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}&q=${query}`
       );
-
-      console.log(result.data.hits);
 
       return { items: result.data.hits };
     }
