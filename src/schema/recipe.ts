@@ -59,6 +59,8 @@ export const useRecipeQuery = (t: ObjectDefinitionBlock<"Query">) => {
         `https://api.edamam.com/search?app_id=337938b4&app_key=1297ec857f114ae4bec67470e87d93cb&q=${query}`
       );
 
+      console.log(result.data.hits);
+
       return { items: result.data.hits };
     }
   });

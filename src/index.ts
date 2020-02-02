@@ -1,3 +1,5 @@
+import "dotenv/config";
+import cors from "cors";
 import { ApolloServer } from "apollo-server-express";
 import compression from "compression";
 import express from "express";
@@ -24,7 +26,9 @@ const server = new ApolloServer({
   introspection: true
 });
 
-const app = express().use(compression());
+const app = express()
+  .use(compression())
+  .use(cors());
 
 server.applyMiddleware({ app, path: "/" });
 
